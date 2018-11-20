@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Gauthier', age: 42 },
-      { name: 'Stephanie', age: 31 },
+      { id: 'asfa1', name: 'Max', age: 28 },
+      { id: 'asfa2', name: 'Gauthier', age: 42 },
+      { id: 'asfa3', name: 'Stephanie', age: 31 },
     ],
     showPersons: false,
   }
@@ -19,15 +19,15 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  nameChangedHandler = (event) => {
-    this.setState({
-      persons: [
-        { name: 'Max', age: 28 },
-        { name: event.target.value, age: 42 },
-        { name: 'Stephanie', age: 31 },
-      ]
-    })
-  }
+  // nameChangedHandler = (event) => {
+  //   this.setState({
+  //     persons: [
+  //       { name: 'Max', age: 28 },
+  //       { name: event.target.value, age: 42 },
+  //       { name: 'Stephanie', age: 31 },
+  //     ]
+  //   })
+  // }
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -52,7 +52,8 @@ class App extends Component {
             return <Person
               click={() => this.deletePersonHandler(index)}
               name={person.name}
-              age={person.age} />
+              age={person.age}
+              key={person.id} />
           })}
         </div>
       );
